@@ -48,7 +48,7 @@ export const siteConfig: SiteConfig = {
 	subtitle: "blog",
 
 	// 站点 URL
-	site_url: "https://firefly.cuteleaf.cn",
+	site_url: "https://xqfblog.dpdns.org/",
 
 	// 站点描述
 	description:
