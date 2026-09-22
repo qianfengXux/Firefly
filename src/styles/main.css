@@ -238,6 +238,11 @@ html {
         @apply rounded-(--radius-large) overflow-hidden bg-(--card-bg-transparent) transition-colors duration-150;
     }
 
+    /* 横幅模式的内容卡片使用半透明底色，文字和图片保持原有不透明度。 */
+    html[data-wallpaper-mode="banner"] #main-grid .card-base {
+        background-color: var(--card-bg-transparent);
+    }
+
     /* LQIP 占位渐变 */
     .lqip-placeholder {
         z-index: 0;

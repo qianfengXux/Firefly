@@ -3,8 +3,119 @@ import ArchivePanel from "@components/controls/ArchivePanel.astro";
 import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
+import { getSortedPostsList } from "@/utils/content-utils";
+import { getPostUrlBySlug } from "@/utils/url-utils";
+
+const posts = (await getSortedPostsList()).slice().sort(
+	(a, b) => b.data.published.getTime() - a.data.published.getTime(),
+);
+function groupPosts(kind: "category" | "tag") {
+	const groups = new Map<string, typeof posts>();
+	for (const post of posts) {
+		const names = kind === "category"
+			? [post.data.category || i18n(I18nKey.uncategorized)]
+			: [...new Set(post.data.tags || [])];
+		for (const name of names) {
+			if (!groups.has(name)) groups.set(name, []);
+			groups.get(name)?.push(post);
+		}
+	}
+	return [...groups].sort(([a], [b]) => a.localeCompare(b, "zh-CN"));
+}
+const views = [
+	{ id: "year", label: "按年份" },
+	{ id: "category", label: "按分类" },
+	{ id: "tag", label: "按标签" },
+];
+const groupedViews = [
+	{ id: "category", groups: groupPosts("category") },
+	{ id: "tag", groups: groupPosts("tag") },
+];
 ---
 
 <MainGridLayout title={i18n(I18nKey.archive)}>
-  <ArchivePanel />
+  <archive-views>
+    <div class="card-base p-2 mb-4 flex gap-2" role="tablist" aria-label="归档浏览方式">
+      {views.map((view, index) => (
+        <button type="button" role="tab" id={`archive-tab-${view.id}`}
+          aria-controls={`archive-view-${view.id}`} aria-selected={index === 0 ? "true" : "false"}
+          tabindex={index === 0 ? 0 : -1} data-view={view.id}
+          class="archive-view-tab flex-1 rounded-lg px-3 py-3 font-medium transition-colors">
+          {view.label}
+        </button>
+      ))}
+    </div>
+    <section id="archive-view-year" role="tabpanel" aria-labelledby="archive-tab-year" tabindex="0">
+      <ArchivePanel />
+    </section>
+    {groupedViews.map((view) => (
+      <section id={`archive-view-${view.id}`} role="tabpanel" aria-labelledby={`archive-tab-${view.id}`} tabindex="0" hidden>
+        <div class="card-base p-4 md:p-8 space-y-3">
+          {view.groups.length === 0 && <p class="text-50">{i18n(I18nKey.noData)}</p>}
+          {view.groups.map(([name, entries]) => (
+            <details class="archive-group rounded-lg" open>
+              <summary class="cursor-pointer rounded-lg px-3 py-3 text-(--primary) font-bold hover:bg-(--btn-plain-bg-hover)">
+                {view.id === "tag" ? `#${name}` : name}
+                <span class="ml-2 text-sm font-normal text-50">{entries.length} {i18n(I18nKey.postsCount)}</span>
+              </summary>
+              <ul class="mt-1">
+                {entries.map((post) => (
+                  <li>
+                    <a href={getPostUrlBySlug(post.id)} class="flex items-start gap-3 rounded-lg px-3 py-3 hover:bg-(--btn-plain-bg-hover) text-75 hover:text-(--primary)">
+                      <time datetime={post.data.published.toISOString()} class="shrink-0 text-xs md:text-sm text-50 pt-0.5">
+                        {`${post.data.published.getFullYear()}-${String(post.data.published.getMonth() + 1).padStart(2, "0")}-${String(post.data.published.getDate()).padStart(2, "0")}`}
+                      </time>
+                      <span class="min-w-0 break-words font-medium">{post.data.title}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          ))}
+        </div>
+      </section>
+    ))}
+  </archive-views>
 </MainGridLayout>
+
+<style>
+  archive-views { display: block; }
+  [role="tabpanel"][hidden] { display: none; }
+  .archive-view-tab { color: var(--text-75); cursor: pointer; }
+  .archive-view-tab:hover { background: var(--btn-plain-bg-hover); }
+  .archive-view-tab[aria-selected="true"] { background: var(--btn-regular-bg); color: var(--primary); }
+  .archive-view-tab:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+</style>
+
+<script>
+  class ArchiveViews extends HTMLElement {
+    connectedCallback() {
+      if (this.dataset.initialized) return;
+      this.dataset.initialized = "true";
+      const tabs = Array.from(this.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
+      const panels = Array.from(this.querySelectorAll<HTMLElement>('[role="tabpanel"]'));
+      const select = (tab: HTMLButtonElement) => {
+        for (const item of tabs) {
+          item.setAttribute("aria-selected", String(item === tab));
+          item.tabIndex = item === tab ? 0 : -1;
+        }
+        for (const panel of panels) panel.hidden = panel.id !== tab.getAttribute("aria-controls");
+      };
+      tabs.forEach((tab, index) => {
+        tab.addEventListener("click", () => select(tab));
+        tab.addEventListener("keydown", (event) => {
+          let next = index;
+          if (event.key === "ArrowRight") next = (index + 1) % tabs.length;
+          else if (event.key === "ArrowLeft") next = (index + tabs.length - 1) % tabs.length;
+          else if (event.key === "Home") next = 0;
+          else if (event.key === "End") next = tabs.length - 1;
+          else return;
+          event.preventDefault();
+          select(tabs[next]);
+          tabs[next].focus();
+        });
+      });
+    }
+  }
+  if (!customElements.get("archive-views")) customElements.define("archive-views", ArchiveViews);
+</script>

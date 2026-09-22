@@ -37,14 +37,19 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 	 */
 	src: {
 		// 桌面背景图片（支持单张或多张随机）
-		// desktop: "assets/images/DesktopWallpaper/d1.avif",
+		// desktop: "assets/images/DesktopWallpaper/xqf-01.avif",
 		desktop: [
-			"assets/images/DesktopWallpaper/d1.avif",
-			"assets/images/DesktopWallpaper/d2.avif",
-			"assets/images/DesktopWallpaper/d3.avif",
-			"assets/images/DesktopWallpaper/d4.avif",
-			"assets/images/DesktopWallpaper/d5.avif",
-			"assets/images/DesktopWallpaper/d6.avif",
+			"assets/images/DesktopWallpaper/xqf-01.avif",
+			"assets/images/DesktopWallpaper/xqf-02.avif",
+			"assets/images/DesktopWallpaper/xqf-03.avif",
+			"assets/images/DesktopWallpaper/xqf-04.avif",
+			"assets/images/DesktopWallpaper/xqf-05.avif",
+			"assets/images/DesktopWallpaper/xqf-06.avif",
+			"assets/images/DesktopWallpaper/xqf-07.avif",
+			"assets/images/DesktopWallpaper/xqf-08.avif",
+			"assets/images/DesktopWallpaper/xqf-09.avif",
+			"assets/images/DesktopWallpaper/xqf-10.avif",
+			"assets/images/DesktopWallpaper/xqf-11.avif",
 		],
 		// 移动背景图片（支持单张或多张随机）
 		// mobile: "assets/images/MobileWallpaper/m1.avif",
@@ -73,17 +78,18 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 			// 是否启用主页横幅文字
 			enable: true,
 			// 主页横幅主标题
-			title: "Lovely firefly!",
+			title: "公诚勇毅，三实一新",
 			// 主页横幅主标题字体大小
 			titleSize: "4.5rem",
 			// 主页横幅副标题
 			subtitle: [
-				"In Reddened Chrysalis, I Once Rest",
-				"From Shattered Sky, I Free Fall",
-				"Amidst Silenced Stars, I Deep Sleep",
-				"Upon Lighted Fyrefly, I Soon Gaze",
-				"From Undreamt Night, I Thence Shine",
-				"In Finalized Morrow, I Full Bloom",
+				"公为天下，报效祖国",
+				"诚实守信，襟怀坦荡",
+				"勇猛精进，敢为人先",
+				"依然果决，坚韧不拔",
+				"基础扎实，工作踏实，作风朴实，开拓创新",
+				"Tender is the night",
+				"Life is half spent before we know what it is.",
 			],
 			// 主页横幅副标题字体大小
 			subtitleSize: "1.5rem",
@@ -107,18 +113,13 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 				{
 					name: "GitHub",
 					icon: "fa7-brands:github",
-					url: "https://github.com/CuteLeaf/Firefly",
+					url: "https://github.com/qianfengXux/Firefly",
 					showName: true,
 				},
 				{
 					name: "Email",
 					icon: "fa7-solid:envelope",
 					url: "mailto:xiaye@msn.com",
-				},
-				{
-					name: "Sponsor",
-					icon: "material-symbols:favorite",
-					url: "https://blog.cuteleaf.cn/sponsor/",
 				},
 				{
 					name: "RSS",

@@ -1,11 +1,11 @@
 ---
 title: Firefly 简单使用指南
-published: 1970-01-02
+published: 2025-01-02
 pinned: true
 description: "如何使用 Firefly 博客模板。"
 image: "./cover.avif"
-tags: ["Firefly", "博客", "Markdown", "指南"]
-category: 博客指南
+tags: [示例]
+category: 文章示例
 series: "Firefly 功能示例"
 seriesOrder: 1
 ---
