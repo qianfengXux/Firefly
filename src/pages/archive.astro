@@ -90,32 +90,46 @@ const groupedViews = [
 <script>
   class ArchiveViews extends HTMLElement {
     connectedCallback() {
-      if (this.dataset.initialized) return;
-      this.dataset.initialized = "true";
+      // 缓存页面会复制 HTML 属性，但不会复制事件监听器。
+      this.addEventListener("click", this.handleClick);
+      this.addEventListener("keydown", this.handleKeydown);
+    }
+
+    disconnectedCallback() {
+      this.removeEventListener("click", this.handleClick);
+      this.removeEventListener("keydown", this.handleKeydown);
+    }
+
+    select(tab: HTMLButtonElement) {
       const tabs = Array.from(this.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
       const panels = Array.from(this.querySelectorAll<HTMLElement>('[role="tabpanel"]'));
-      const select = (tab: HTMLButtonElement) => {
-        for (const item of tabs) {
-          item.setAttribute("aria-selected", String(item === tab));
-          item.tabIndex = item === tab ? 0 : -1;
-        }
-        for (const panel of panels) panel.hidden = panel.id !== tab.getAttribute("aria-controls");
-      };
-      tabs.forEach((tab, index) => {
-        tab.addEventListener("click", () => select(tab));
-        tab.addEventListener("keydown", (event) => {
-          let next = index;
-          if (event.key === "ArrowRight") next = (index + 1) % tabs.length;
-          else if (event.key === "ArrowLeft") next = (index + tabs.length - 1) % tabs.length;
-          else if (event.key === "Home") next = 0;
-          else if (event.key === "End") next = tabs.length - 1;
-          else return;
-          event.preventDefault();
-          select(tabs[next]);
-          tabs[next].focus();
-        });
-      });
+      for (const item of tabs) {
+        item.setAttribute("aria-selected", String(item === tab));
+        item.tabIndex = item === tab ? 0 : -1;
+      }
+      for (const panel of panels) panel.hidden = panel.id !== tab.getAttribute("aria-controls");
     }
+
+    handleClick = (event: MouseEvent) => {
+      const tab = event.target instanceof Element
+        ? event.target.closest<HTMLButtonElement>('[role="tab"]') : null;
+      if (tab && tab.closest("archive-views") === this) this.select(tab);
+    };
+
+    handleKeydown = (event: KeyboardEvent) => {
+      const tabs = Array.from(this.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
+      const index = tabs.findIndex(tab => tab === event.target);
+      if (index < 0) return;
+      let next = index;
+      if (event.key === "ArrowRight") next = (index + 1) % tabs.length;
+      else if (event.key === "ArrowLeft") next = (index + tabs.length - 1) % tabs.length;
+      else if (event.key === "Home") next = 0;
+      else if (event.key === "End") next = tabs.length - 1;
+      else return;
+      event.preventDefault();
+      this.select(tabs[next]);
+      tabs[next].focus();
+    };
   }
   if (!customElements.get("archive-views")) customElements.define("archive-views", ArchiveViews);
 </script>
