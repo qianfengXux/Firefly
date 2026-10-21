@@ -3,7 +3,7 @@ title: 从事件相机到脉冲神经网络：事件视觉基础知识梳理
 published: 2026-10-20
 description: '结合两篇论文的阅读笔记，梳理事件相机原理、时间戳、事件表示、时空去噪与评价，以及脉冲神经网络基础。'
 image: ''
-tags: [事件视觉, 论文笔记, 脉冲神经网络]
+tags: [事件视觉, 论文笔记]
 category: '学习笔记'
 draft: false
 lang: 'zh_CN'

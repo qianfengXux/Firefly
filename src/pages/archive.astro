@@ -20,7 +20,16 @@ function groupPosts(kind: "category" | "tag") {
 			groups.get(name)?.push(post);
 		}
 	}
-	return [...groups].sort(([a], [b]) => a.localeCompare(b, "zh-CN"));
+	return [...groups].sort(([a], [b]) => {
+		const exampleName = kind === "category" ? "文章示例" : "示例";
+		const exampleOrder = Number(a === exampleName) - Number(b === exampleName);
+		if (exampleOrder !== 0) return exampleOrder;
+		if (kind === "category") {
+			const priority = Number(b === "学习笔记") - Number(a === "学习笔记");
+			if (priority !== 0) return priority;
+		}
+		return a.localeCompare(b, "zh-CN");
+	});
 }
 const views = [
 	{ id: "year", label: "按年份" },
@@ -76,18 +85,11 @@ const groupedViews = [
       </section>
     ))}
   </archive-views>
-</MainGridLayout>
-
-<style>
-  archive-views { display: block; }
-  [role="tabpanel"][hidden] { display: none; }
-  .archive-view-tab { color: var(--text-75); cursor: pointer; }
-  .archive-view-tab:hover { background: var(--btn-plain-bg-hover); }
-  .archive-view-tab[aria-selected="true"] { background: var(--btn-regular-bg); color: var(--primary); }
-  .archive-view-tab:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
-</style>
-
-<script>
+<script is:inline>
+  // Swup 切换内容时需要执行本页初始化，不能依赖仅加载一次的页面模块。
+  // 用独立作用域与注册检查兼容重复进入、预加载和缓存恢复。
+  (() => {
+  if (customElements.get("archive-views")) return;
   class ArchiveViews extends HTMLElement {
     connectedCallback() {
       // 缓存页面会复制 HTML 属性，但不会复制事件监听器。
@@ -100,9 +102,9 @@ const groupedViews = [
       this.removeEventListener("keydown", this.handleKeydown);
     }
 
-    select(tab: HTMLButtonElement) {
-      const tabs = Array.from(this.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
-      const panels = Array.from(this.querySelectorAll<HTMLElement>('[role="tabpanel"]'));
+    select(tab) {
+      const tabs = Array.from(this.querySelectorAll('[role="tab"]'));
+      const panels = Array.from(this.querySelectorAll('[role="tabpanel"]'));
       for (const item of tabs) {
         item.setAttribute("aria-selected", String(item === tab));
         item.tabIndex = item === tab ? 0 : -1;
@@ -110,14 +112,14 @@ const groupedViews = [
       for (const panel of panels) panel.hidden = panel.id !== tab.getAttribute("aria-controls");
     }
 
-    handleClick = (event: MouseEvent) => {
+    handleClick = (event) => {
       const tab = event.target instanceof Element
-        ? event.target.closest<HTMLButtonElement>('[role="tab"]') : null;
+        ? event.target.closest('[role="tab"]') : null;
       if (tab && tab.closest("archive-views") === this) this.select(tab);
     };
 
-    handleKeydown = (event: KeyboardEvent) => {
-      const tabs = Array.from(this.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
+    handleKeydown = (event) => {
+      const tabs = Array.from(this.querySelectorAll('[role="tab"]'));
       const index = tabs.findIndex(tab => tab === event.target);
       if (index < 0) return;
       let next = index;
@@ -131,5 +133,16 @@ const groupedViews = [
       tabs[next].focus();
     };
   }
-  if (!customElements.get("archive-views")) customElements.define("archive-views", ArchiveViews);
+  customElements.define("archive-views", ArchiveViews);
+  })();
 </script>
+</MainGridLayout>
+
+<style>
+  archive-views { display: block; }
+  [role="tabpanel"][hidden] { display: none; }
+  .archive-view-tab { color: var(--text-75); cursor: pointer; }
+  .archive-view-tab:hover { background: var(--btn-plain-bg-hover); }
+  .archive-view-tab[aria-selected="true"] { background: var(--btn-regular-bg); color: var(--primary); }
+  .archive-view-tab:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+</style>
