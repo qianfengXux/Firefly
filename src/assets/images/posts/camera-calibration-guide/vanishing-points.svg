@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="vanishing-points" viewBox="0 0 320 150" width="640" height="300" role="img" aria-labelledby="vanishing-points-title vanishing-points-desc">
+<title id="vanishing-points-title">两组消失点</title><desc id="vanishing-points-desc">实线和虚线分别交于两个位于同一水平线上的消失点。</desc>
+<style>
+#vanishing-points text {fill:#172033;font:14px 'Microsoft YaHei','Noto Sans CJK SC',sans-serif}
+#vanishing-points .s,#vanishing-points .d {stroke:#697486;fill:none;stroke-width:1;vector-effect:non-scaling-stroke}
+#vanishing-points .d {stroke-dasharray:4 4}
+#vanishing-points .a,#vanishing-points .b {fill:none;stroke-width:1.6;vector-effect:non-scaling-stroke}
+#vanishing-points .a {stroke:#1756a9}
+#vanishing-points .b {stroke:#a64b16;stroke-dasharray:4 3}
+#vanishing-points .p {fill:#1756a9}
+#vanishing-points .q {fill:#a64b16}
+</style>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<rect x="10" y="16" width="300" height="113" class="s"/><line x1="12" y1="55" x2="308" y2="55" class="d"/><path d="M44 55L188 124 M44 55L284 88" class="a"/><path d="M273 55L80 124 M273 55L24 86" class="b"/><circle cx="44" cy="55" r="3.5" class="p"/><circle cx="273" cy="55" r="3.5" class="q"/><text x="44" y="43" text-anchor="middle">V₁</text><text x="273" y="43" text-anchor="middle">V₂</text><text x="160" y="146" text-anchor="middle">两组平行线的延长线</text>
+</svg>

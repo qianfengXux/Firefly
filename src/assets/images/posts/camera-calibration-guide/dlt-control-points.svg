@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="dlt-control-points" viewBox="0 0 320 150" width="640" height="300" role="img" aria-labelledby="dlt-control-points-title dlt-control-points-desc">
+<title id="dlt-control-points-title">三维 DLT 点对应</title><desc id="dlt-control-points-desc">两个不同深度平面上的已知点分别对应图像上的观测点。</desc>
+<style>
+#dlt-control-points text {fill:#172033;font:14px 'Microsoft YaHei','Noto Sans CJK SC',sans-serif}
+#dlt-control-points .s,#dlt-control-points .d {stroke:#697486;fill:none;stroke-width:1;vector-effect:non-scaling-stroke}
+#dlt-control-points .d {stroke-dasharray:4 4}
+#dlt-control-points .a,#dlt-control-points .b {fill:none;stroke-width:1.6;vector-effect:non-scaling-stroke}
+#dlt-control-points .a {stroke:#1756a9}
+#dlt-control-points .b {stroke:#a64b16;stroke-dasharray:4 3}
+#dlt-control-points .p {fill:#1756a9}
+#dlt-control-points .q {fill:#a64b16}
+</style>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<path d="M62 20L151 32V89L62 77Z M44 45L132 57V114L44 102Z M62 20L44 45 M151 32L132 57 M151 89L132 114 M62 77L44 102" class="s"/><circle cx="62" cy="20" r="3.5" class="q"/><circle cx="151" cy="32" r="3.5" class="q"/><circle cx="151" cy="89" r="3.5" class="q"/><circle cx="62" cy="77" r="3.5" class="q"/><circle cx="44" cy="45" r="3.5" class="p"/><circle cx="132" cy="57" r="3.5" class="p"/><circle cx="132" cy="114" r="3.5" class="p"/><circle cx="44" cy="102" r="3.5" class="p"/><rect x="216" y="28" width="81" height="82" class="s"/><circle cx="230" cy="52" r="3.5" class="q"/><circle cx="281" cy="45" r="3.5" class="q"/><circle cx="276" cy="73" r="3.5" class="q"/><circle cx="228" cy="79" r="3.5" class="q"/><circle cx="243" cy="59" r="3.5" class="p"/><circle cx="289" cy="57" r="3.5" class="p"/><circle cx="287" cy="89" r="3.5" class="p"/><circle cx="240" cy="94" r="3.5" class="p"/><path d="M169 69H201m-7 -5 7 5 -7 5" class="a"/><text x="98" y="139" text-anchor="middle">三维控制点</text><text x="258" y="139" text-anchor="middle">图像观测点</text>
+</svg>

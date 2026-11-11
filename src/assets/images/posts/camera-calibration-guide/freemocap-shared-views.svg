@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="266" viewBox="0 0 680 266" role="img" aria-label="相机 A 与 B 在 k1 共同观测板，相机 B 与 C 在 k2 共同观测板">
+<title>相机 A 与 B 在 k1 共同观测板，相机 B 与 C 在 k2 共同观测板</title>
+<defs><marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5 0 10Z" fill="#1756a9"/></marker><marker id="orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5 0 10Z" fill="#a64b16"/></marker></defs>
+<style>text {font-family:'Microsoft YaHei','Noto Sans CJK SC',sans-serif;font-size:17px;fill:#18253b}</style>
+<rect width="680" height="266" fill="#fff"/>
+<rect x="55" y="22" width="110" height="46" rx="8" fill="#eaf2fc" stroke="#58667b"/><text x="110" y="50" text-anchor="middle">相机 A</text>
+<rect x="285" y="22" width="110" height="46" rx="8" fill="#eaf2fc" stroke="#58667b"/><text x="340" y="50" text-anchor="middle">相机 B</text>
+<rect x="515" y="22" width="110" height="46" rx="8" fill="#eaf2fc" stroke="#58667b"/><text x="570" y="50" text-anchor="middle">相机 C</text>
+<path d="M110 71L208 126" fill="none" stroke="#1756a9" stroke-width="2" marker-end="url(#blue)"/>
+<path d="M340 71L246 126" fill="none" stroke="#1756a9" stroke-width="2" marker-end="url(#blue)"/>
+<path d="M340 71L434 126" fill="none" stroke="#a64b16" stroke-width="2" marker-end="url(#orange)"/>
+<path d="M570 71L472 126" fill="none" stroke="#a64b16" stroke-width="2" marker-end="url(#orange)"/>
+<rect x="206" y="128" width="42" height="28" fill="#fff" stroke="#58667b"/><rect x="206" y="128" width="14" height="14" fill="#18253b"/><rect x="234" y="128" width="14" height="14" fill="#18253b"/><rect x="220" y="142" width="14" height="14" fill="#18253b"/>
+<rect x="432" y="128" width="42" height="28" fill="#fff" stroke="#58667b"/><rect x="432" y="128" width="14" height="14" fill="#18253b"/><rect x="460" y="128" width="14" height="14" fill="#18253b"/><rect x="446" y="142" width="14" height="14" fill="#18253b"/>
+<text x="227" y="180" text-anchor="middle">同一帧 k₁</text>
+<text x="453" y="180" text-anchor="middle">同一帧 k₂</text>
+<path d="M110 216H570" fill="none" stroke="#58667b" stroke-width="2"/>
+<circle cx="110" cy="216" r="11" fill="#fff" stroke="#1756a9" stroke-width="2"/><text x="110" y="222" text-anchor="middle">A</text><circle cx="340" cy="216" r="11" fill="#fff" stroke="#1756a9" stroke-width="2"/><text x="340" y="222" text-anchor="middle">B</text><circle cx="570" cy="216" r="11" fill="#fff" stroke="#1756a9" stroke-width="2"/><text x="570" y="222" text-anchor="middle">C</text>
+<text x="340" y="248" text-anchor="middle">相机 B 将两组共享观测接到同一个世界坐标系</text>
+</svg>

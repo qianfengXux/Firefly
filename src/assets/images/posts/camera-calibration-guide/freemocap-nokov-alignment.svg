@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="207" viewBox="0 0 680 207" role="img" aria-label="NOKOV 的三维点经空间与时间对齐进入事件相机">
+<title>NOKOV 的三维点经空间与时间对齐进入事件相机</title>
+<defs><marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5 0 10Z" fill="#1756a9"/></marker><marker id="orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5 0 10Z" fill="#a64b16"/></marker></defs>
+<style>text {font-family:'Microsoft YaHei','Noto Sans CJK SC',sans-serif;font-size:17px;fill:#18253b}</style>
+<rect width="680" height="207" fill="#fff"/>
+<rect x="20" y="24" width="185" height="64" rx="8" fill="#eaf2fc" stroke="#58667b"/><text x="112.5" y="49" text-anchor="middle">NOKOV 三维点</text><text x="112.5" y="73" text-anchor="middle">按 Marker ID 对应</text>
+<rect x="247" y="24" width="185" height="64" rx="8" fill="#eaf2fc" stroke="#58667b"/><text x="339.5" y="49" text-anchor="middle">世界到事件相机</text><text x="339.5" y="73" text-anchor="middle">旋转 R、平移 t</text>
+<rect x="474" y="24" width="185" height="64" rx="8" fill="#eaf2fc" stroke="#58667b"/><text x="566.5" y="49" text-anchor="middle">投影到事件像面</text><text x="566.5" y="73" text-anchor="middle">用事件相机内参</text>
+<path d="M211 56H241" fill="none" stroke="#1756a9" stroke-width="2" marker-end="url(#blue)"/>
+<path d="M438 56H468" fill="none" stroke="#1756a9" stroke-width="2" marker-end="url(#blue)"/>
+<rect x="20" y="125" width="185" height="64" rx="8" fill="#fff1e7" stroke="#58667b"/><text x="112.5" y="150" text-anchor="middle">NOKOV 时间戳</text><text x="112.5" y="174" text-anchor="middle">硬件触发</text>
+<rect x="247" y="125" width="185" height="64" rx="8" fill="#fff1e7" stroke="#58667b"/><text x="339.5" y="150" text-anchor="middle">拟合时钟映射</text><text x="339.5" y="174" text-anchor="middle">速率与偏移</text>
+<rect x="474" y="125" width="185" height="64" rx="8" fill="#fff1e7" stroke="#58667b"/><text x="566.5" y="150" text-anchor="middle">事件相机时刻</text><text x="566.5" y="174" text-anchor="middle">匹配同一次触发</text>
+<path d="M211 157H241" fill="none" stroke="#a64b16" stroke-width="2" marker-end="url(#orange)"/>
+<path d="M438 157H468" fill="none" stroke="#a64b16" stroke-width="2" marker-end="url(#orange)"/>
+</svg>

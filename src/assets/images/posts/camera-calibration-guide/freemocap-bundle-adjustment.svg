@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="257" viewBox="0 0 680 257" role="img" aria-label="Anipose 和 PyCeres 如何将板角点投影到图像">
+<title>Anipose 和 PyCeres 如何将板角点投影到图像</title>
+<defs><marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5 0 10Z" fill="#1756a9"/></marker><marker id="orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5 0 10Z" fill="#a64b16"/></marker></defs>
+<style>text {font-family:'Microsoft YaHei','Noto Sans CJK SC',sans-serif;font-size:17px;fill:#18253b}</style>
+<rect width="680" height="257" fill="#fff"/>
+<text x="118" y="25" text-anchor="middle">Anipose</text>
+<text x="118" y="170" text-anchor="middle">PyCeres</text>
+<rect x="21" y="44" width="194" height="56" rx="8" fill="#eaf2fc" stroke="#58667b"/><text x="118" y="65" text-anchor="middle">角点世界坐标</text><text x="118" y="89" text-anchor="middle">作为优化变量</text>
+<rect x="21" y="114" width="194" height="38" rx="8" fill="#fff1e7" stroke="#58667b"/><text x="118" y="138" text-anchor="middle">已知板几何与板位姿</text>
+<path d="M221 72H252" fill="none" stroke="#1756a9" stroke-width="2" marker-end="url(#blue)"/>
+<path d="M118 112V102" fill="none" stroke="#a64b16" stroke-width="2" marker-end="url(#orange)"/>
+<rect x="258" y="44" width="167" height="56" rx="8" fill="#eaf2fc" stroke="#58667b"/><text x="341.5" y="77" text-anchor="middle">投影到各相机</text>
+<path d="M431 72H462" fill="none" stroke="#1756a9" stroke-width="2" marker-end="url(#blue)"/>
+<rect x="468" y="44" width="190" height="56" rx="8" fill="#eaf2fc" stroke="#58667b"/><text x="563" y="77" text-anchor="middle">计算像素残差</text>
+<rect x="21" y="184" width="194" height="56" rx="8" fill="#eaf2fc" stroke="#58667b"/><text x="118" y="205" text-anchor="middle">已知板角点</text><text x="118" y="229" text-anchor="middle">经当帧板位姿变换</text>
+<path d="M221 212H252" fill="none" stroke="#1756a9" stroke-width="2" marker-end="url(#blue)"/>
+<rect x="258" y="184" width="167" height="56" rx="8" fill="#eaf2fc" stroke="#58667b"/><text x="341.5" y="217" text-anchor="middle">投影到各相机</text>
+<path d="M431 212H462" fill="none" stroke="#1756a9" stroke-width="2" marker-end="url(#blue)"/>
+<rect x="468" y="184" width="190" height="56" rx="8" fill="#eaf2fc" stroke="#58667b"/><text x="563" y="217" text-anchor="middle">计算像素残差</text>
+<text x="235" y="140" text-anchor="start">板几何残差</text>
+</svg>

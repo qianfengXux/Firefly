@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="hand-eye-poses" viewBox="0 0 320 150" width="640" height="300" role="img" aria-labelledby="hand-eye-poses-title hand-eye-poses-desc">
+<title id="hand-eye-poses-title">手眼标定的两个观测位姿</title><desc id="hand-eye-poses-desc">机械臂从同一基座运动到两个不同位姿，末端相机都看向固定靶标。</desc>
+<style>
+#hand-eye-poses text {fill:#172033;font:14px 'Microsoft YaHei','Noto Sans CJK SC',sans-serif}
+#hand-eye-poses .s,#hand-eye-poses .d {stroke:#697486;fill:none;stroke-width:1;vector-effect:non-scaling-stroke}
+#hand-eye-poses .d {stroke-dasharray:4 4}
+#hand-eye-poses .a,#hand-eye-poses .b {fill:none;stroke-width:1.6;vector-effect:non-scaling-stroke}
+#hand-eye-poses .a {stroke:#1756a9}
+#hand-eye-poses .b {stroke:#a64b16;stroke-dasharray:4 3}
+#hand-eye-poses .p {fill:#1756a9}
+#hand-eye-poses .q {fill:#a64b16}
+</style>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<path d="M17 111H303 M55 103L80 64L114 82 M55 103L113 96L172 81" class="s"/><circle cx="55" cy="103" r="3.5" class="p"/><circle cx="80" cy="64" r="3.5" class="p"/><circle cx="113" cy="96" r="3.5" class="p"/><rect x="112" y="74" width="19" height="13" class="s"/><rect x="171" y="74" width="19" height="13" class="s"/><path d="M131 78L269 38 M190 78L269 38" class="b"/><path d="M249 20L287 14L289 54L251 60Z M250 40L288 34 M268 17L270 57" class="s"/><circle cx="269" cy="38" r="3.5" class="q"/><text x="99" y="46" text-anchor="middle">位姿 1</text><text x="175" y="62" text-anchor="middle">位姿 2</text><text x="266" y="80" text-anchor="middle">固定靶标</text><text x="55" y="132" text-anchor="middle">基座</text>
+</svg>

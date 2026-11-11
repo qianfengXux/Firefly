@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="camera-pinhole" viewBox="0 0 320 180" width="640" height="360" role="img" aria-labelledby="camera-pinhole-title camera-pinhole-desc">
+<title id="camera-pinhole-title">针孔投影侧视图</title>
+<desc id="camera-pinhole-desc">空间点 P、像点 p 与光心 O 共线。归一化平面位于 Zc 等于 1。</desc>
+<style>
+#camera-pinhole text {fill:#172033;font:14px 'Microsoft YaHei','Noto Sans CJK SC',sans-serif}
+#camera-pinhole .structure {stroke:#697486;stroke-width:1;fill:none;vector-effect:non-scaling-stroke}
+#camera-pinhole .ray {stroke:#1756a9;stroke-width:2;fill:none;vector-effect:non-scaling-stroke}
+#camera-pinhole .point {fill:#1756a9}
+</style>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<path class="structure" d="M28 133H297m-6 -4 6 4 -6 4 M111 28V153 M248 56V133" />
+<path class="ray" d="M28 133L248 56"/>
+<circle class="point" cx="28" cy="133" r="4"/><circle class="point" cx="111" cy="103.95" r="4"/><circle class="point" cx="248" cy="56" r="4"/>
+<text x="14" y="154">O</text><text x="121" y="101">p</text><text x="259" y="55">P</text>
+<text x="62" y="21">归一化平面</text><text x="74" y="172">Zc = 1</text><text x="270" y="155">Zc</text>
+</svg>

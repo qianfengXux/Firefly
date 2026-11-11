@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="camera-stereo" viewBox="0 0 320 180" width="640" height="360" role="img" aria-labelledby="camera-stereo-title camera-stereo-desc">
+<title id="camera-stereo-title">水平双目三角测量俯视图</title>
+<desc id="camera-stereo-desc">左右光心相距 B。两条视线交于 P，P 到基线的垂直距离是深度 Z。</desc>
+<style>
+#camera-stereo text {fill:#172033;font:14px 'Microsoft YaHei','Noto Sans CJK SC',sans-serif}
+#camera-stereo .structure {stroke:#697486;stroke-width:1;fill:none;vector-effect:non-scaling-stroke}
+#camera-stereo .ray {stroke:#1756a9;stroke-width:2;fill:none;vector-effect:non-scaling-stroke}
+#camera-stereo .point {fill:#1756a9}
+</style>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<path class="structure" d="M70 142H252 M70 142V32 M252 142V32 M70 108H252 M155 29V142" stroke-dasharray="4 4"/>
+<path class="ray" d="M70 142L155 29L252 142"/>
+<circle class="point" cx="70" cy="142" r="4"/><circle class="point" cx="252" cy="142" r="4"/><circle class="point" cx="155" cy="29" r="4"/>
+<circle class="point" cx="95.58" cy="108" r="3.5"/><circle class="point" cx="222.81" cy="108" r="3.5"/>
+<text x="161" y="22">P</text><text x="49" y="164">左光心</text><text x="229" y="164">右光心</text><text x="155" y="162">B</text><text x="163" y="86">Z</text><text x="86" y="98">pL</text><text x="219" y="98">pR</text>
+</svg>
